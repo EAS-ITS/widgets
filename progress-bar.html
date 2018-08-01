@@ -20,7 +20,7 @@
       <h1>Progress bar</h1>
       <p aria-live="polite" id="supplementary-info" class="alert"></p>
       <div class="bs-example">
-        <div class="progress progress-striped active">
+        <div class="progress progress-striped active" style="display:none">
           <div class="progress-bar" aria-live="polite"></div>
         </div>
         <p>
@@ -46,7 +46,10 @@
 
         <script type="text/javascript">
           var i = 0;
+
           $('#startProgress').on('click', function() {
+            $('.progress').css('display','block');
+            $('#supplementary-info').text('Starting ...').attr('class', 'alert alert-info');
             $(this).attr('disabled', true)
             startProgress();
           });
@@ -57,7 +60,7 @@
             if (i < 100) {
               i = i + 1;
               if (i > 50) {
-                $('#supplementary-info').text('More than halfway done...').attr('class', 'alert alert-info');
+                $('#supplementary-info').text('More than halfway done ...').attr('class', 'alert alert-warning');
               }
               if (i === 100) {
                 $('#supplementary-info').text('Done!').attr('class', 'alert alert-success');
