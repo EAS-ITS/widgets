@@ -161,6 +161,7 @@ TSlider.prototype.handleBlur = function(event) {
 
 TSlider.prototype.handleMouseDown = function(event) {
 
+
   var self = this;
 
   var handleMouseMove = function(event) {
@@ -168,7 +169,7 @@ TSlider.prototype.handleMouseDown = function(event) {
     var diffX = event.pageX - self.railDomNode.offsetLeft;
     self.valueNow = parseInt(((self.valueMax - self.valueMin) * diffX) / self.railWidth);
     self.moveTSliderTo(self.valueNow);
-
+    $('#' + self.domNode.id + 'Add').text(self.values[self.valueNow]);
     event.preventDefault();
     event.stopPropagation();
   };
@@ -397,6 +398,7 @@ VSlider.prototype.handleMouseDown = function(event) {
     var diffY = event.pageY - self.railDomNode.offsetTop;
     self.valueNow = self.valueMax - parseInt(((self.valueMax - self.valueMin) * diffY) / self.railHeight);
     self.moveVSliderTo(self.valueNow);
+    $('#tempAdd').text(self.valueNow);
 
     event.preventDefault();
     event.stopPropagation();
