@@ -55,8 +55,7 @@
             <ul>
               <li>Avoid, if possible.</li>
               <li>Use text length for calculating the amount of time the toast remains on screen: 3 seconds plus 120 milliseconds per character.</li>
-              <li>Provide a control to dismiss - do not rely on hover to do so.</li>
-              <li>When user dismisses, return focus to last element that had it.</li>
+              <li>Do not rely on hover to dismiss</li>
               <li>If you are using color to flag different modes, provide text that conveys the mode as well (warning, info, danger, etc)</li>
               <li>Do not load on page load.</li>
               <li>Always display toast in same location.</li>
@@ -74,7 +73,7 @@
               .attr('role','alert')
               .fadeIn('2000')
             function hide(){
-              $('#snackbar').slideUp();
+              $('#snackbar').attr('role','').slideUp();
               $('#showSnack').focus();
             }
             setTimeout(hide, 3000 + ($('#messageInput').val().length * 120));
