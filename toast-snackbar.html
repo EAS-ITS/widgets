@@ -55,11 +55,15 @@
             <ul>
               <li>Avoid, if possible.</li>
               <li>Use text length for calculating the amount of time the toast remains on screen: 3 seconds plus 120 milliseconds per character.</li>
+              <li>Hide it from all with <code>style="display:none"</code> to begin with </li>
+              <li>When invoked 1) add <code>role="alert"</code>, 2) show it, 3) after interval remove the role, 4) hide it</li>
               <li>Do not rely on hover to dismiss</li>
               <li>If you are using color to flag different modes, provide text that conveys the mode as well (warning, info, danger, etc)</li>
               <li>Do not load on page load.</li>
               <li>Always display toast in same location.</li>
             </ul>
+          </div>
+          <div  class="row" id="snackbar">
           </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -80,8 +84,7 @@
           })
 
         </script>
-        <div  class="row" id="snackbar">
-        </div>
+
 
       </div>
     </div>
